@@ -15,7 +15,7 @@ spec:
   values:
     images:
       airflow:
-        repository: "edwinguo123/docker-eks-airflow"
+        repository: https://github.com/EdwinGuo/airflow-eks-docker
         tag: "0.1.3"
     fernetKey: "7CwHL-dZshOoFGicV5DuqPdeEcBKN66SDcI-TfMFPas="
     env:
