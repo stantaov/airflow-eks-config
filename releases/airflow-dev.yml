@@ -9,7 +9,7 @@ spec:
   releaseName: airflow-dev
     # serviceAccountName: app
   chart:
-    repository: https://edwinguo.github.io/airflow-eks-helm-chart
+    repository: https://airflow-helm.github.io/charts
     name: airflow
     version: 1.0.8
   values:
@@ -51,4 +51,4 @@ spec:
         maxFailures: 0
         subPath: ""
         wait: 60
-        #
+        ####
