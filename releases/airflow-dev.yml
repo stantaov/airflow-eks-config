@@ -15,7 +15,7 @@ spec:
   values:
     images:
       airflow:
-        repository: "stantaov/data-engineer-class-airflow-image"
+        repository: "stantaov/docker-image-eks"
         tag: "0.0.1"
     fernetKey: "7CwHL-dZshOoFGicV5DuqPdeEcBKN66SDcI-TfMFPas="
     env:
