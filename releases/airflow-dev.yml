@@ -9,9 +9,9 @@ spec:
   releaseName: airflow-dev
     # serviceAccountName: app
   chart:
-    repository: https://github.com/marclamberti/airflow-eks-helm-chart
+    repository: https://edwinguo.github.io/airflow-eks-helm-chart
     name: airflow
-    version: 1.0.0
+    version: 1.0.8
   values:
     fernetKey: "7CwHL-dZshOoFGicV5DuqPdeEcBKN66SDcI-TfMFPas="
     env:
