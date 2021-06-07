@@ -39,6 +39,17 @@ spec:
         value: "us-east-1"
       - name: "AIRFLOW__SCHEDULER__DAG_DIR_LIST_INTERVAL"
         value: 60
+      - name: "AIRFLOW__KUBERNETES__DAGS_VOLUME_SUBPATH"
+        value: "repo/"
+      - name: "AIRFLOW__KUBERNETES__GIT_REPO"
+        value: "git@git.com:stantaov/airflow-dags.git"
+      - name: "AIRFLOW__KUBERNETES__GIT_BRANCH"
+        value: "master"
+      - name: "AIRFLOW__KUBERNETES__GIT_DAGS_FOLDER_MOUNT_POINT"
+        value: "/dags"
+      - name: "AIRFLOW__KUBERNETES__GIT_SSH_KEY_SECRET_NAME"
+        value: "airflow-secret"
+      
     #executor: "KubernetesExecutor"
     executor: "CeleryExecutor"
     api:
