@@ -44,8 +44,6 @@ spec:
     api:
       authBackend: "airflow.contrib.auth.backends.password_auth"
     dags:
-      persistence:
-        enabled: false
       gitSync:
         enabled: true
         repo: https://github.com/stantaov/airflow-dags.git
