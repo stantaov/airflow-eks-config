@@ -42,7 +42,7 @@ spec:
       - name: "AIRFLOW__KUBERNETES__DAGS_VOLUME_SUBPATH"
         value: "repo/"
       - name: "AIRFLOW__KUBERNETES__GIT_REPO"
-        value: "ssh://git@github.com/stantaov/airflow-dags.git"
+        value: "https://git@github.com/stantaov/airflow-dags.git"
       - name: "AIRFLOW__KUBERNETES__GIT_BRANCH"
         value: "master"
       - name: "AIRFLOW__KUBERNETES__GIT_DAGS_FOLDER_MOUNT_POINT"
@@ -70,7 +70,7 @@ spec:
 
     dags:
       git:
-        url: ssh://git@github.com/stantaov/airflow-dags.git
+        url: https://git@github.com/stantaov/airflow-dags.git
         repoHost: github.com
         repoPort: 22
         ref: master
@@ -80,3 +80,4 @@ spec:
         gitSync:
           enabled: true
           refreshTime: 60
+###
