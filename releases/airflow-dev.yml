@@ -42,13 +42,16 @@ spec:
       - name: "AIRFLOW__KUBERNETES__DAGS_VOLUME_SUBPATH"
         value: "repo/"
       - name: "AIRFLOW__KUBERNETES__GIT_REPO"
-        value: "git@git.com:stantaov/airflow-dags.git"
+        value: "ssh://git@github.com:stantaov/airflow-dags.git"
       - name: "AIRFLOW__KUBERNETES__GIT_BRANCH"
         value: "master"
       - name: "AIRFLOW__KUBERNETES__GIT_DAGS_FOLDER_MOUNT_POINT"
-        value: "/dags"
+        value: "/opt/airflow/dags"
       - name: "AIRFLOW__KUBERNETES__GIT_SSH_KEY_SECRET_NAME"
         value: "airflow-secret"
+      - name: "AIRFLOW__KUBERNETES__GIT_SYNC_ROOT"
+        value: "/opt/airflow/dags"
+      - name: 
       
     #executor: "KubernetesExecutor"
     executor: "CeleryExecutor"
@@ -64,3 +67,16 @@ spec:
         httpSecret: "airflow-secret"
         httpSecretUsernameKey: username
         httpSecretPasswordKey: password
+
+    dags:
+      git:
+        url: ssh://git@github.com:stantaov/airflow-dags.git
+        repoHost: github.com
+        repoPort: 22
+        ref: master
+        secret: airflow-secret
+        privateKeyName: id_rsa
+
+        gitSync:
+          enabled: true
+          refreshTime: 60
