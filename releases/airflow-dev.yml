@@ -52,6 +52,6 @@ spec:
         branch: "master"
         revision: "HEAD"
         syncWait: 60
-        httpSecret: "airflow-http-git-secret"
+        httpSecret: "airflow-secret"
         httpSecretUsernameKey: username
         httpSecretPasswordKey: password
