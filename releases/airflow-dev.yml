@@ -43,23 +43,43 @@ spec:
     executor: "CeleryExecutor"
     api:
       authBackend: "airflow.contrib.auth.backends.password_auth"
-    dags:
-      persistence:
-        enabled: false
-      gitSync:
-        enabled: true
-        repo: https://github.com/stantaov/airflow-dags
-        branch: master
-        maxFailures: 0
-        subPath: ""
-        wait: 60
-    plugins:
-      persistence:
-        enabled: false
-      gitSync:
-        enabled: true
-        repo: https://github.com/stantaov/airflow-dags
-        branch: master
-        maxFailures: 0
-        subPath: ""
-        wait: 60
+    # dags:
+    #   persistence:
+    #     enabled: false
+    #   gitSync:
+    #     enabled: true
+    #     repo: https://github.com/stantaov/airflow-dags
+    #     branch: master
+    #     maxFailures: 0
+    #     subPath: ""
+    #     wait: 60
+    # plugins:
+    #   persistence:
+    #     enabled: false
+    #   gitSync:
+    #     enabled: true
+    #     repo: https://github.com/stantaov/airflow-dags
+    #     branch: master
+    #     maxFailures: 0
+    #     subPath: ""
+    #     wait: 60
+    extraVolumes: 
+    - name: synchronised-dags
+      emptyDir: {}
+
+    extraContainers:
+    - name: s3-sync
+      image: sidecar_python:latest
+      imagePullPolicy: Never
+      env:
+        - name: BUCKET_NAME
+          value: "midterm-project-wcd"
+        - name: LOCAL_DIR
+          value: "/dags"
+      volumeMounts:
+      - name: synchronised-dags
+        mountPath: /dags
+
+    extraVolumeMounts:
+    - name: synchronised-dags
+      mountPath: /opt/airflow/dags
