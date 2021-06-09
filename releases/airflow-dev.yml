@@ -53,3 +53,13 @@ spec:
         maxFailures: 0
         subPath: ""
         wait: 60
+    plugins:
+      persistence:
+        enabled: false
+      gitSync:
+        enabled: true
+        repo: https://github.com/stantaov/airflow-dags
+        branch: master
+        maxFailures: 0
+        subPath: ""
+        wait: 60
