@@ -4,12 +4,12 @@ metadata:
   name: airflow-elb-web
   namespace: dev
   labels:
-    component: web
+    component: webserver
     release: airflow-dev
   annotations:
 spec:
   selector:
-    component: web
+    component: webserver
     release: airflow-dev
   ports:
     - name: web
